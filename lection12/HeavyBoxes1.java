@@ -18,6 +18,9 @@ import java.util.TreeSet;
         --> то же самое, что пункт д) ??
     3. Создать TreeSet содержащий HeavyBox. HeavyBox должен реализовать интерфейс Comparable.
     Распечатать содержимое с помощью for each.
+
+    6. Создать очередь, содержащую объекты класса HeavyBox. Используем класс ArrayDeque.
+    Поместить объекты в очередь с помощью метода offer(). Удалить объекты методом poll().
 */
 public class HeavyBoxes1 {
     public static void main(String[] args) {
