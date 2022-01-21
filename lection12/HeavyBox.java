@@ -4,9 +4,9 @@ package com.KomSoft.lection12;
     Created by Volodymyr P. Komarov aka KomSoft
 */
 public class HeavyBox implements Comparable<HeavyBox>{
-    private int length;
-    private int width;
-    private int depth;
+    private final int length;
+    private final int width;
+    private final int depth;
     private int weight;
 
     public HeavyBox(int length, int width, int depth, int weight) {
@@ -28,6 +28,12 @@ public class HeavyBox implements Comparable<HeavyBox>{
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    // взвесить коробку
+    public boolean weight(int boundWeight) {
+        return this.weight > boundWeight;
+    }
+
 
     @Override
     public int compareTo(HeavyBox other) {

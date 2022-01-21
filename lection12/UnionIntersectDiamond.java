@@ -9,62 +9,32 @@ import java.util.*;
     5. Напишите методы union(Set<?>... set) и intersect(Set<?> ... set), реализующих операции
     объединения и пересечения множеств. Протестируйте работу этих методов на предварительно заполненных множествах.
 */
-public class UnionIntersect {
+public class UnionIntersectDiamond {
 
-    // первый параметр задает класс результата
-    public Set union(Class<? extends Set> className, Set... inSets) {
+//    public LinkedHashSet union(Set... inSets) {
+//    public <S extends Set>  union(S mainSet, S... otherSets) {
+//    public Set union(Set mainSet, Set... otherSets) {
+    public <S extends Set> Collection union(S mainSet, S... otherSets) {
+//    public <S extends Set> UnionIntrsectDiamond<S> union(S... inSets) {
         boolean res = true;
         Set newSet;
 //        System.out.println(className.getName());
-        if(className.getName().contains("TreeSet")) {
-            newSet = new TreeSet();
+        if(mainSet.getClass().getName().contains("TreeSet")) {
+             newSet = new TreeSet(mainSet);
         } else {
-            if(className.getName().contains("HashSet")) {
-                newSet = new HashSet();
+            if(mainSet.getClass().getName().contains("HashSet")) {
+                newSet = new HashSet(mainSet);
             } else {
-                newSet = new LinkedHashSet();           // по умолчанию пусть будет Linked (не сортированый, но упорядоченый
+                newSet = new LinkedHashSet(mainSet);   // по умолчанию пусть будет Linked (не сортированый, но упорядоченый)
             }
         }
-        for(Set<?> set : inSets) {
+        for(Set set : otherSets) {
             res = res & newSet.addAll(set);
-            }
-        return newSet;
         }
+        return newSet;
+    }
 
 /*
-    // и аналогично перегружаем для HashSet & TreeSet
-    public LinkedHashSet union(LinkedHashSet... inSets) {
-        boolean res = true;
-        LinkedHashSet newSet = new LinkedHashSet();
-        for(int i = 0; i < inSets.length; i++) {
-            res = res & newSet.addAll(inSets[i]);
-        }
-        return newSet;
-    }
-*/
-
-    // по умолчанию пусть будет Linked (не сортированый, но упорядоченый)
-    public LinkedHashSet union(Set... inSets) {
-        boolean res = true;
-        LinkedHashSet newSet = new LinkedHashSet();
-        for(Set set : inSets) {
-            res = res & newSet.addAll(set);
-        }
-        return newSet;
-    }
-
-    // проверим, изменит ли args[0]. По идее должно, передача ведь по ссылке.
-    public Set uniTest(Set... inSets) {
-        boolean res = true;
-        if(inSets.length == 0) {
-            return null;
-        }
-        for(int i = 1; i < inSets.length; i++) {
-            res = res & inSets[0].addAll(inSets[i]);
-        }
-        return inSets[0];
-    }
-
     // по умолчанию пусть будет Linked (не сортированый, но упорядоченый)
     public LinkedHashSet intersect(Set... inSets) {
         if(inSets.length == 0 ) {
@@ -77,9 +47,11 @@ public class UnionIntersect {
         }
         return newSet;
     }
+*/
+
 
     public static void main(String[] args) {
-        UnionIntersect uis = new UnionIntersect();
+        UnionIntersectDiamond uis = new UnionIntersectDiamond();
         Set<String> hashSet1 = new HashSet<>(10, 0.8f);
         LinkedHashSet<String> linkedHashSet1 = new LinkedHashSet<>(10, 0.8f);
         LinkedHashSet<String> linkedHashSet2 = new LinkedHashSet<>(10, 0.8f);
@@ -129,34 +101,21 @@ public class UnionIntersect {
         System.out.println("LinkedHashSet3 : " + linkedHashSet3);
         System.out.println("TreeSet1       : " + treeSet1);
 
-        LinkedHashSet<String> unionLinkedSet = uis.union(linkedHashSet1, linkedHashSet2, linkedHashSet3);
+        LinkedHashSet<String> unionLinkedSet = (LinkedHashSet<String>) uis.union(linkedHashSet1, linkedHashSet2, linkedHashSet3);
         System.out.println("union as LinkedHashSet only: " + unionLinkedSet);
-        //        Set<String> unionSet = (Set<String>) union(hashSet1, linkedHashSet1, treeSet1);
-        Set<String> unionSet1 = uis.union(LinkedHashSet.class, linkedHashSet1, linkedHashSet2, linkedHashSet3);
-        System.out.println("union as LinkedHashSet (mixed): " + unionSet1);
-        Set<String> unionSet2 = uis.union(TreeSet.class, hashSet1, linkedHashSet1, treeSet1);
-        System.out.println("union TreeSet (mixed): " + unionSet2);
-        Set<String> unionSet4 = uis.union(hashSet1, linkedHashSet1, treeSet1);
-        System.out.println("union (mixed): " + unionSet4);
-//        System.out.println(uis.union(TreeMap.class, hashSet1, linkedHashSet1, treeSet1));     // !! супер! не пропускает!
-//        System.out.println("union Set : " + unionSet);
-
+        HashSet<String> unionSet1 = (HashSet<String>) uis.union(hashSet1, linkedHashSet1, treeSet1);
+        System.out.println("union as HashSet (mixed): " + unionSet1);
+        TreeSet<String> unionSet2 = (TreeSet<String>) uis.union(hashSet1, linkedHashSet1, treeSet1);
+        System.out.println("union as TreeSet (mixed): " + unionSet2);
+/*
         Set<String> intersectSet1 = uis.intersect(hashSet1, linkedHashSet1);
         System.out.println("intersect hashSet1 & linkedHashSet1: " + intersectSet1);
         Set<String> intersectSet2 = uis.intersect(hashSet1, treeSet1);
         System.out.println("intersect hashSet1 & treeSet1: " + intersectSet2);
         Set<String> intersectSet3 = uis.intersect(hashSet1, linkedHashSet1, treeSet1);
         System.out.println("intersect hashSet1, linkedHashSet1 & treeSet1: " + intersectSet3);
-
-
-
-/*
-        System.out.println("Проверим передачу параметров по ссылке");
-        System.out.println("HashSet1       : " + hashSet1);
-        System.out.println("LinkedHashSet1 : " + linkedHashSet1);
-        System.out.println("TreeSet1       : " + treeSet1);
-        System.out.println(uis.uniTest(hashSet1, linkedHashSet1, treeSet1));
-        System.out.println("HashSet1       : " + hashSet1);
 */
+
+
     }
 }
