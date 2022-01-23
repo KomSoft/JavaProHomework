@@ -9,16 +9,23 @@ import java.util.*;
     5. Напишите методы union(Set<?>... set) и intersect(Set<?> ... set), реализующих операции
     объединения и пересечения множеств. Протестируйте работу этих методов на предварительно заполненных множествах.
 */
-public class UnionIntersectDiamond {
+//public class  UnionIntersectDiamond <? extends Set>{
+public class  UnionIntersectDiamond <T extends Set>{
 
 //    public LinkedHashSet union(Set... inSets) {
 //    public <S extends Set>  union(S mainSet, S... otherSets) {
 //    public Set union(Set mainSet, Set... otherSets) {
-    public <S extends Set> Collection union(S mainSet, S... otherSets) {
+//    public <S extends Set> Collection union(S mainSet, S... otherSets) {
 //    public <S extends Set> UnionIntrsectDiamond<S> union(S... inSets) {
-        boolean res = true;
+    public <T extends Set>UnionIntersectDiamond<T> union(Set... sets) {
+        if(sets.length == 0) {
+            return null;
+        }
+//        T newSet = new <T> for (Object o : (sets[0]))
+//        T newSet = new T.getClass();
+
+ /*       boolean res = true;
         Set newSet;
-//        System.out.println(className.getName());
         if(mainSet.getClass().getName().contains("TreeSet")) {
              newSet = new TreeSet(mainSet);
         } else {
@@ -28,10 +35,11 @@ public class UnionIntersectDiamond {
                 newSet = new LinkedHashSet(mainSet);   // по умолчанию пусть будет Linked (не сортированый, но упорядоченый)
             }
         }
-        for(Set set : otherSets) {
+        for(Set<S> set : otherSets) {
             res = res & newSet.addAll(set);
         }
-        return newSet;
+*/
+        return null;
     }
 
 /*
@@ -51,7 +59,7 @@ public class UnionIntersectDiamond {
 
 
     public static void main(String[] args) {
-        UnionIntersectDiamond uis = new UnionIntersectDiamond();
+        UnionIntersectDiamond<Set> uis = new UnionIntersectDiamond<>();
         Set<String> hashSet1 = new HashSet<>(10, 0.8f);
         LinkedHashSet<String> linkedHashSet1 = new LinkedHashSet<>(10, 0.8f);
         LinkedHashSet<String> linkedHashSet2 = new LinkedHashSet<>(10, 0.8f);
@@ -101,12 +109,14 @@ public class UnionIntersectDiamond {
         System.out.println("LinkedHashSet3 : " + linkedHashSet3);
         System.out.println("TreeSet1       : " + treeSet1);
 
-        LinkedHashSet<String> unionLinkedSet = (LinkedHashSet<String>) uis.union(linkedHashSet1, linkedHashSet2, linkedHashSet3);
+/*
+        LinkedHashSet<String> unionLinkedSet = uis.union(linkedHashSet1, linkedHashSet2, linkedHashSet3);
         System.out.println("union as LinkedHashSet only: " + unionLinkedSet);
         HashSet<String> unionSet1 = (HashSet<String>) uis.union(hashSet1, linkedHashSet1, treeSet1);
         System.out.println("union as HashSet (mixed): " + unionSet1);
         TreeSet<String> unionSet2 = (TreeSet<String>) uis.union(hashSet1, linkedHashSet1, treeSet1);
         System.out.println("union as TreeSet (mixed): " + unionSet2);
+*/
 /*
         Set<String> intersectSet1 = uis.intersect(hashSet1, linkedHashSet1);
         System.out.println("intersect hashSet1 & linkedHashSet1: " + intersectSet1);
@@ -115,7 +125,5 @@ public class UnionIntersectDiamond {
         Set<String> intersectSet3 = uis.intersect(hashSet1, linkedHashSet1, treeSet1);
         System.out.println("intersect hashSet1, linkedHashSet1 & treeSet1: " + intersectSet3);
 */
-
-
     }
 }
