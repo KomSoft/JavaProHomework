@@ -66,9 +66,15 @@ JavaPro/src/com/KomSoft/lection11/
 JavaPro/src/com/KomSoft/lection16/DemoReader.java
 JavaPro/src/com/KomSoft/lection16/DemoWriter.java
 JavaPro/src/com/KomSoft/lection16/FileRunner.java
+JavaPro/src/com/KomSoft/lection16/PackDemo.java
 JavaPro/src/com/KomSoft/lection16/PackJar.java
 JavaPro/src/com/KomSoft/lection16/ReadDemo.java
 JavaPro/src/com/KomSoft/lection16/RunnerSerialization.java
+JavaPro/src/com/KomSoft/lection16/ScannerDelimiterDemo.java
+JavaPro/src/com/KomSoft/lection16/ScannerDemo.java
 JavaPro/src/com/KomSoft/lection16/Serializator.java
+JavaPro/src/com/KomSoft/lection16/SpacesTest.java
 JavaPro/src/com/KomSoft/lection16/Student.java
+JavaPro/src/com/KomSoft/lection16/UnpackDemo.java
+JavaPro/src/com/KomSoft/lection16/UnPackJar.java
 JavaPro/src/com/KomSoft/lection16/WriterRunner.java
