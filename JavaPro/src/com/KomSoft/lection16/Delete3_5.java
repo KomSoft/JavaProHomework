@@ -17,8 +17,9 @@ public class Delete3_5 {
     public static void main(String[] args) {
         String destDir = Homework16Common.DATA_DIR;
         String inFileName = destDir + File.separator + "data7.txt";
-        String outFileName = destDir + File.separator + "data7_out.txt";
+        String outFileName = destDir + File.separator + Homework16Common.MY_DIR + File.separator + "data7_out.txt";
 
+        new MakeDestDir(Homework16Common.DATA_DIR + File.separator + Homework16Common.MY_DIR);
         System.out.println("7. Из файла удалить все слова, содержащие от трех до пяти символов,\n" +
                 "    но при этом из каждой строки должно быть удалено только\n" +
                 "    максимальное четное количество таких слов.");

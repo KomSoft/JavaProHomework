@@ -16,6 +16,7 @@ public class ReverseString {
         File outFile = new File(Homework16Common.DATA_DIR + File.separator + Homework16Common.MY_DIR +
                 File.separator + "reverse" + fileName);
 
+        new MakeDestDir(Homework16Common.DATA_DIR + File.separator + Homework16Common.MY_DIR);
         try (BufferedReader br = new BufferedReader(new FileReader(inFile));
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(outFile, false)))) {
             StringBuilder stringBuilder;

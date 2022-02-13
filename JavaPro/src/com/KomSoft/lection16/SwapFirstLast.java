@@ -15,8 +15,8 @@ public class SwapFirstLast {
         File inFile = new File(Homework16Common.PROJECT_DIR + File.separator + fileName);
         File outFile = new File(Homework16Common.DATA_DIR + File.separator + Homework16Common.MY_DIR +
                 File.separator + "swap_" + fileName);
-
-        System.out.println("Try to swap the first word and the last one for each line in file '" + outFile + "'...");
+        new MakeDestDir(Homework16Common.DATA_DIR + File.separator + Homework16Common.MY_DIR);
+        System.out.println("Try to swap the first word and the last one for each line in file '" + inFile + "'...");
         try (BufferedReader br = new BufferedReader(new FileReader(inFile));
             PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(outFile, false)))) {
             String strIn;

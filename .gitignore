@@ -62,13 +62,13 @@ JavaPro/src/com/KomSoft/lection10/
 # All file from JavaPro/src/com/KomSoft/lection11/ are ignored
 JavaPro/src/com/KomSoft/lection11/
 # All file from JavaPro/src/com/KomSoft/lection12/ don't ignore
-JavaPro/src/com/KomSoft/lection16/
-!JavaPro/src/com/KomSoft/lection16/ChangePublic.java
-!JavaPro/src/com/KomSoft/lection16/Delete3_5.java
-!JavaPro/src/com/KomSoft/lection16/FillRandom.java
-!JavaPro/src/com/KomSoft/lection16/FindData.java
-!JavaPro/src/com/KomSoft/lection16/Homework16Common.java
-!JavaPro/src/com/KomSoft/lection16/MakeDestDir.java
-!JavaPro/src/com/KomSoft/lection16/ReverseString.java
-!JavaPro/src/com/KomSoft/lection16/UpMore2Chars.java
-!JavaPro/src/com/KomSoft/lection16/UpStudents.java
+#JavaPro/src/com/KomSoft/lection16/
+JavaPro/src/com/KomSoft/lection16/DemoReader.java
+JavaPro/src/com/KomSoft/lection16/DemoWriter.java
+JavaPro/src/com/KomSoft/lection16/FileRunner.java
+JavaPro/src/com/KomSoft/lection16/PackJar.java
+JavaPro/src/com/KomSoft/lection16/ReadDemo.java
+JavaPro/src/com/KomSoft/lection16/RunnerSerialization.java
+JavaPro/src/com/KomSoft/lection16/Serializator.java
+JavaPro/src/com/KomSoft/lection16/Student.java
+JavaPro/src/com/KomSoft/lection16/WriterRunner.java
