@@ -1,11 +1,14 @@
 # Default ignored files
 HomeTasks/
+Cpp/
+lections/
 
 # for Exchange
 SQLdemo/.idea/
 SQLdemo/db/
 SQLdemo/lib/
 SQLdemo/out/
+SQLdemo/src/test/
 SQLdemo/SQLdemo.iml
 
 # for JavaProj adding only homeworks
@@ -60,3 +63,12 @@ JavaPro/src/com/KomSoft/lection10/
 JavaPro/src/com/KomSoft/lection11/
 # All file from JavaPro/src/com/KomSoft/lection12/ don't ignore
 JavaPro/src/com/KomSoft/lection16/
+!JavaPro/src/com/KomSoft/lection16/ChangePublic.java
+!JavaPro/src/com/KomSoft/lection16/Delete3_5.java
+!JavaPro/src/com/KomSoft/lection16/FillRandom.java
+!JavaPro/src/com/KomSoft/lection16/FindData.java
+!JavaPro/src/com/KomSoft/lection16/Homework16Common.java
+!JavaPro/src/com/KomSoft/lection16/MakeDestDir.java
+!JavaPro/src/com/KomSoft/lection16/ReverseString.java
+!JavaPro/src/com/KomSoft/lection16/UpMore2Chars.java
+!JavaPro/src/com/KomSoft/lection16/UpStudents.java
