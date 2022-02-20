@@ -47,6 +47,8 @@ public class FindData {
                 for (String s : sParam) {
                     bUnknown = true;
                     intFound = false;
+                    if (!s.isEmpty()) {
+/*
                     if (bInt) {
                         try {
                             Integer.parseInt(s);
@@ -58,23 +60,31 @@ public class FindData {
 //                            e.printStackTrace();
                         }
                     }
-                    if (bDouble && !intFound) {
-                        try {
-                            Double.parseDouble(s);
-                            System.out.print("double \t");
+*/
+                        if (bInt && s.matches("(\\+?)(\\-?)\\d?")) {
+                            Integer.parseInt(s);
+                            System.out.print("int \t");
                             bUnknown = false;
-                        } catch (NumberFormatException e) {
+                            intFound = true;
+                        }
+                        if (bDouble && !intFound && s.matches("(\\+?)(\\-?)\\d*\\.?\\d*[eE]?\\+?\\-?\\d{1,3}+")) {
+                            try {
+                                Double.parseDouble(s);
+                                System.out.print("double \t");
+                                bUnknown = false;
+                            } catch (NumberFormatException e) {
 //                            do nothing
 //                            e.printStackTrace();
+                            }
                         }
-                    }
-                    if (bChar && (s.length() == 1) && (s.matches("[a-zA-Zа-яА-Я\s]"))) {
-                        System.out.print("char \t");
-                        bUnknown = false;
-                    }
-                    if (bWord && (s.length() > 1) && (s.matches("[a-zA-Zа-яА-Я]+"))) {
-                        System.out.print("word \t");
-                        bUnknown = false;
+                        if (bChar && (s.length() == 1) && (s.matches("[a-zA-Zа-яА-Я\s]"))) {
+                            System.out.print("char \t");
+                            bUnknown = false;
+                        }
+                        if (bWord && (s.length() > 1) && (s.matches("[a-zA-Zа-яА-Я]+"))) {
+                            System.out.print("word \t");
+                            bUnknown = false;
+                        }
                     }
                     if (bUnknown) {
                         System.out.print("unknown type (String?) \t");
